@@ -3,6 +3,7 @@ package study.hong.order;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.internal.matchers.Or;
+import study.hong.AppConfig;
 import study.hong.member.Grade;
 import study.hong.member.Member;
 import study.hong.member.MemberService;
@@ -12,8 +13,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class OrderServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
-    OrderService orderService = new OrderServiceImpl();
+    AppConfig appConfig = new AppConfig();
+    MemberService memberService = appConfig.memberService();
+    OrderService orderService = appConfig.orderService();
+//    MemberService memberService = new MemberServiceImpl();
+//    OrderService orderService = new OrderServiceImpl();
     @Test
     void createOrder() {
         Long memberId = 1L;
